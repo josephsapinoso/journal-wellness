@@ -28,14 +28,29 @@ app.config([
                 url: '/anger',
                 templateUrl: '/anger.html',
                 controller:'MainCtrl'
+            })
+            
+            .state('completed', {
+                url: '/completed',
+                templateUrl: '/completed.html',
+                controller:'MainCtrl'
             });
 
         $urlRouterProvider.otherwise('home');
 }]);
 
+app.factory('emotions', [function(){
+    // service body 
+    var o = {
+        emotions: []
+    };
+    return o; 
+}])
+
 app.controller('MainCtrl', [
     '$scope', // scope allows controllers to interact and share data with angular templates.
     'issues',
+    'emotions',
     function($scope, issues){  
         $scope.test = 'Hello world!';
 
@@ -53,6 +68,16 @@ app.controller('MainCtrl', [
             $scope.entries.push({
                 entry: $scope.entry
             });
+        };
+
+        $scope.emotions = emotions.emotions;
+
+        $scope.addEmotion = function(){
+            if (!$scope.emotion || $scope.emotion === '') { return; }
+                $scope.emotions.push({
+                    emotion: $scope.emotion,
+                }); 
+            $scope.emotion = '';
         };
 
 }]);

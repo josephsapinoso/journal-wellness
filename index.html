@@ -90,21 +90,53 @@
 <!-- Anger Journal Page -->
 
 <script type="text/ng-template" id="/anger.html">  
-     <div class="page-header">
-
+    <div class="page-header">
         <h1>Journal to Wellness</h1>
-      </div>
-       <body ng-controller="MainCtrl">
-      <div>
-          <p>
-              Let's begin. Think of an even when your anger got the best of you. What happened? Let's be short and concise so we can focus on the most important details. 
-          </p>
-      </div>
-      </div>
-        <textarea class="form-control" wm-block ng-model="foo" wm-block-length="validLength" rows="3"></textarea>
+    </div>
+    <div>
+        <p>
+            Let's begin. Think of an event when your anger got the best of you. What happened? Let's be short and concise so we can focus on the most important details. 
+        </p>
+    </div>
+        <textarea name="entry" class="form-control"  maxlength="140" rows="3" required></textarea>
         <br>
-        <button type="submit" class="btn btn-primary">Complete</button>
-       </body>
+        <br>
+    <form ng-submit="addEmotion()"
+        style="margin-top:30px;">
+        <p>Emotions you felt</p>
+
+     <div class="form-group">
+          <input type="text"
+            class="form-control"
+            placeholder="e.g. Anger"
+            ng-model="emotion"></input>
+    </div>
+        <a href="#/anger"><button type="submit" style="margin-top:30px;" class="btn btn-primary">Complete</button><a>
+    </form>
+
+    <div ng-repeat="emotion in emotions">
+        <span style="font-size:20px; margin-left:10px;" ng-show="emotion.emotion">
+            {{emotion.emotion}}
+        <span ng-hide="post.link">
+            {{emotion.emotion}}
+        </span>
+        </span>
+    </div>
+    <a href="#/completed"><button type="submit" style="margin-top:30px;" class="btn btn-primary">Complete</button><a>
+
+</script>
+
+<!-- Completed Journal Page -->
+
+<script type="text/ng-template" id="/completed.html">  
+    <div class="page-header">
+        <h1>Journal to Wellness</h1>
+    </div>
+    <div>
+        <p>
+            Your journal entry is done. Please remember that there is hope for change. It starts with this entry.
+        </p>
+    </div>
 </script>
 
 </body>
