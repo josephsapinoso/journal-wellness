@@ -32,7 +32,7 @@
             <input type="text"
                 class="form-control"
                 placeholder="e.g. My anger issues"
-                ng-model="issue"></input>
+                ng-model="issues"></input>
             </div>
              <a href="#/confirm"><button type="submit" class="btn btn-primary">Submit</button></a>
         </form>
@@ -47,11 +47,13 @@
      <div class="page-header">
         <h1>Journal to Wellness</h1>
       </div>
-        <div ng-model="issues" style="margin-top:30px;">
+        <div ng-app="issues" style="margin-top:30px;">
             <h3>You've entered</h3>
+                <span>
                 <div style="color:green;">
-                    <h3>'my anger issues'</h3>
+                    <h3>'{{ issue }}'</h3>
                 </div>
+                </span>
             <h3>Are these the things you want to work on?</h3>
         </div>
         <div>
@@ -100,21 +102,19 @@
     </div>
         <textarea name="entry" class="form-control"  maxlength="140" rows="3" required></textarea>
         <br>
-        <br>
-    <form ng-submit="addEmotion()"
-        style="margin-top:30px;">
-        <p>Emotions you felt</p>
-
+    <form ng-submit="addEmotion()" style="margin-top:30px;">
+        <p>What are the emotions you felt?</p>
      <div class="form-group">
           <input type="text"
             class="form-control"
             placeholder="e.g. Anger"
-            ng-model="emotion"></input>
+            ng-model="emotions"></input>
     </div>
+    <button type="submit" class="btn btn-info">Add Emotion</button>
     </form>
 
     <div ng-repeat="emotion in emotions">
-        <span style="font-size:20px; margin-left:10px;" ng-show="emotion.feeling">
+        <span style="font-size:20px; margin-left:10px;">
             {{emotion.feeling}}
     </div>
     <a href="#/completed"><button type="submit" style="margin-top:30px;" class="btn btn-primary">Complete</button><a>

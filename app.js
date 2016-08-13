@@ -51,7 +51,7 @@ app.controller('MainCtrl', [
     '$scope', // scope allows controllers to interact and share data with angular templates.
     'issues',
     'emotions',
-    function($scope, issues){  
+    function($scope, issues, emotions){  
         $scope.test = 'Hello world!';
 
         $scope.issues = issues.issues;
