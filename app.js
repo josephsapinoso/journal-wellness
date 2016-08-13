@@ -34,7 +34,7 @@ app.config([
                 url: '/completed',
                 templateUrl: '/completed.html',
                 controller:'MainCtrl'
-            });
+            })
 
         $urlRouterProvider.otherwise('home');
 }]);
@@ -75,7 +75,7 @@ app.controller('MainCtrl', [
         $scope.addEmotion = function(){
             if (!$scope.emotion || $scope.emotion === '') { return; }
                 $scope.emotions.push({
-                    emotion: $scope.emotion,
+                    feeling: $scope.emotion,
                 }); 
             $scope.emotion = '';
         };
