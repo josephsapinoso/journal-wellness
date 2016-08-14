@@ -25,17 +25,16 @@
      <div class="page-header">
         <h1>Journal to Wellness</h1>
       </div>
+      <div ng-controller="MainCtrl">
         <form ng-submit="submitIssue()"
             style="margin-top:30px;">
             <h3>I want to work on</h3>
             <div class="form-group">
-            <input type="text"
-                class="form-control"
-                placeholder="e.g. My anger issues"
-                ng-model="issues"></input>
+            <input type="text" class="form-control" placeholder="e.g. My anger issues" ng-model="issue"></input>
             </div>
              <a href="#/confirm"><button type="submit" class="btn btn-primary">Submit</button></a>
         </form>
+      </div>
     </div>
 
 </script>
@@ -47,18 +46,14 @@
      <div class="page-header">
         <h1>Journal to Wellness</h1>
       </div>
-        <div ng-app="issues" style="margin-top:30px;">
-            <h3>You've entered</h3>
-                <span>
-                <div style="color:green;">
-                    <h3>'{{ issue }}'</h3>
-                </div>
-                </span>
+        <div  ng-controller="MainCtrl" ng-model="issues" style="margin-top:30px;">
+            <h3>You've entered '{{ issue }}'<h3>
+        </div>
             <h3>Are these the things you want to work on?</h3>
         </div>
         <div>
-            <button type="submit" class="btn btn-warning">Managing Anger</button>
-            <button type="submit" class="btn btn-danger">Managing Stress</button>
+            <p class="bg-danger" style="width:150px;padding:5px;text-align:center;">Managing Anger</p>
+             <p class="bg-warning" style="width:150px;padding:5px;text-align:center;">Managing Stress</p>
         </div>
         <br>
         <br>
