@@ -63,7 +63,6 @@ app.controller('MainCtrl', [
             }); 
         };
 
-
         $scope.submitEntry = function(){
             if (!$scope.entry || $scope.entry === '') { return; }
             $scope.entries.push({
